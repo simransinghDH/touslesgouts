@@ -17,7 +17,7 @@
     <RootNamespace>TousLesGouts.Site.Web</RootNamespace>
     <AssemblyName>TousLesGouts.Site.Web</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -307,6 +307,18 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\creative-bootstrap\css\creative.min.css" />
+    <Content Include="assets\vendor\creative-bootstrap\js\creative.min.js" />
+    <Content Include="assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\vendor\jquery\jquery.min.js" />
+    <Content Include="assets\vendor\magnific-popup\jquery.magnific-popup.min.js" />
+    <Content Include="assets\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="assets\vendor\scrollreveal\scrollreveal.min.js" />
     <Content Include="config\grid.editors.config.js" />
     <Content Include="config\Lang\cs-CZ.user.xml" />
     <Content Include="config\Lang\da-DK.user.xml" />
@@ -362,6 +374,47 @@
     <Content Include="config\BaseRestExtensions.config" />
     <Content Include="config\applications.config" />
     <Content Include="config\404handlers.config" />
+    <Content Include="Views\ContactPage.cshtml" />
+    <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\TextPage.cshtml" />
+    <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\vendor\font-awesome\less\animated.less" />
+    <Content Include="assets\vendor\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assets\vendor\font-awesome\less\core.less" />
+    <Content Include="assets\vendor\font-awesome\less\fixed-width.less" />
+    <Content Include="assets\vendor\font-awesome\less\font-awesome.less" />
+    <Content Include="assets\vendor\font-awesome\less\icons.less" />
+    <Content Include="assets\vendor\font-awesome\less\larger.less" />
+    <Content Include="assets\vendor\font-awesome\less\list.less" />
+    <Content Include="assets\vendor\font-awesome\less\mixins.less" />
+    <Content Include="assets\vendor\font-awesome\less\path.less" />
+    <Content Include="assets\vendor\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assets\vendor\font-awesome\less\screen-reader.less" />
+    <Content Include="assets\vendor\font-awesome\less\stacked.less" />
+    <Content Include="assets\vendor\font-awesome\less\variables.less" />
+    <Content Include="assets\vendor\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_animated.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_core.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_icons.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_larger.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_list.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_mixins.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_path.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_stacked.scss" />
+    <Content Include="assets\vendor\font-awesome\scss\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -379,6 +432,11 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\img\" />
+    <Folder Include="assets\js\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -394,7 +452,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58695/</IISUrl>
+          <IISUrl>http://touslesgouts.local</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
