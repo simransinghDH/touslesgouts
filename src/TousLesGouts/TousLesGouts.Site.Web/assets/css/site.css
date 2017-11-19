@@ -249,6 +249,23 @@ section#copyright {
     padding: 0 !important;
 }
 
+.product-inner {
+    min-height: 250px;
+    text-align: justify;
+}
+
+.product-inner h3 {
+    text-align: center;
+}
+
+#product-category .container .product-inner img {
+    max-width: 250px;
+}
+
+.product-inner p {
+    font-size: 1em;
+}
+
 .product-category-inner {
     min-height: 250px;
     text-align: center;

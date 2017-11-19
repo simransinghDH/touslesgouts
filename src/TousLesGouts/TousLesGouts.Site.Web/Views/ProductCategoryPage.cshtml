@@ -4,6 +4,7 @@
     var leadBannerId = Umbraco.Media(CurrentPage.leadbannerImage);
     string leadBannerUrl = leadBannerId.Url;
     var products = CurrentPage.Children().Where("Visible");
+    bool isPictureLayout = CurrentPage.isPictureLayout;
 }
 
 @section stylesheets {
@@ -26,22 +27,56 @@
 
 <section id="product-category">
     <div class="container">
-        @foreach (var product in products)
+        @if (isPictureLayout)
         {
-            var image = Umbraco.Media(product.image);
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+            int index = 0;
+            for (int i = 1; i <= Math.Ceiling((double)products.Count() / 4); i++)
+            {
+                <div class="row">
+                    @foreach (var product in products.Skip(index * 4).Take(4))
+                    {
+                        var image = Umbraco.Media(product.image);
+                        <div class="col-md-3 product-inner">
+                            <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+                            <div class="product-inner-box">
+                                <h3>
+                                    @product.title
+                                </h3>
+                                <p>
+                                    @product.summary
+                                </p>
+                            </div>
+                        </div>
+                    }
                 </div>
-                <div class="col-md-7">
-                    <h3>
-                        @product.title
-                    </h3>
-                    <p>
-                        @product.text
-                    </p>
+
+                index++;
+            }
+        }
+        else
+        {
+            foreach (var product in products)
+            {
+                var image = Umbraco.Media(product.image);
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+                    </div>
+                    <div class="col-md-7">
+                        <h3>
+                            @product.title
+                        </h3>
+                        <p>
+                            @product.text
+                        </p>
+                    </div>
                 </div>
-            </div>
+            }
         }
     </div>
 </section>
+
+<div>
+    @CurrentPage.GetGridHtml("grid")
+</div>
