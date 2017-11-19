@@ -3,34 +3,41 @@
 @{
     var selection = CurrentPage.Children("productCategoryOverviewPage");
     var page = selection.FirstOrDefault();
+    var productCategories = page.Children();
 }
 
 @if (page != null && page.Children.Any())
 {
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
-            <div class="row no-gutter">
-                @foreach (var productCategory in page.Children())
-                {
-                    var image = Umbraco.Media(productCategory.image);
+            @{ int index = 0;}
+            @for (int i = 1; i <= Math.Ceiling((double)productCategories.Count() / 3); i++)
+            {
+                <div class="row no-gutter">
+                    @foreach (var productCategory in productCategories.Skip(index * 3).Take(3))
+                    {
+                        var image = Umbraco.Media(productCategory.image);
 
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="@productCategory.Url" class="portfolio-box">
-                            <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        @Umbraco.Field("#Home.ProductCategories.Subtitel")
-                                    </div>
-                                    <div class="project-name">
-                                        @productCategory.Name
+                        <div class="col-lg-4 col-sm-6">
+                            <a href="@productCategory.Url" class="portfolio-box">
+                                <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-category text-faded">
+                                            @Umbraco.Field("#Home.ProductCategories.Subtitel")
+                                        </div>
+                                        <div class="project-name">
+                                            @productCategory.Name
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                }
-            </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+
+                index++;
+            }
         </div>
     </section>
-}
+                }
