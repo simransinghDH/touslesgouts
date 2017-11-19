@@ -3,7 +3,6 @@
 @{
     var selection = CurrentPage.Children("productCategoryOverviewPage");
     var page = selection.FirstOrDefault();
-    var extraImage = Umbraco.Media(CurrentPage.productCategoryExtraImage);
 }
 
 @if (page != null && page.Children.Any())
@@ -29,15 +28,6 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
-                }
-
-                @if (extraImage != null && !string.IsNullOrEmpty(extraImage.Url))
-                {
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="portfolio-box">
-                            <img src="@extraImage.Url" class="img-responsive" alt="@extraImage.UrlName">
-                        </div>
                     </div>
                 }
             </div>
