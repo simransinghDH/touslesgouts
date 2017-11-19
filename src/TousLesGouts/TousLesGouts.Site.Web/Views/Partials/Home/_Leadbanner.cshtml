@@ -1,0 +1,15 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var ourProductsPage = Umbraco.Content(1104);
+}
+
+<header>
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">@Umbraco.Field("leadBannerTitle")</h1>
+            <hr>
+            <p>@Umbraco.Field("leadBannerText")</p>
+            <a href="@ourProductsPage.Url" class="btn btn-primary btn-xl page-scroll">@Umbraco.Field("#Home.Banner.Knop")</a>
+        </div>
+    </div>
+</header>

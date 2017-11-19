@@ -1,5 +1,56 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ContactPage>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@using TousLesGouts.Site.Web.Models.Contact;
+@inherits UmbracoTemplatePage
+
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    var leadBannerId = Umbraco.Media(CurrentPage.leadbannerImage);
+    string leadBannerUrl = leadBannerId.Url;
+    string isSuccessfulFormPost = Request["succes"];
+}
+
+@section stylesheets {
+    <style>
+        body header {
+            background-image: url('@Html.Raw(leadBannerUrl)');
+        }
+    </style>
+}
+
+@Html.Partial("~/Views/Partials/Shared/_Leadbanner.cshtml")
+
+<section id="contact-cta" >
+    <div class="container contact-title">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">@Umbraco.Field("#Contact.Titel")</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @Umbraco.Field("bodyText")
+            </div>
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(isSuccessfulFormPost) && isSuccessfulFormPost.Equals("true"))
+                {
+                    <p class="bg-success">@Umbraco.Field("#Contact.Succes")</p>
+                }
+                else
+                {
+                    Html.RenderPartial("~/Views/Partials/Forms/ContactForm.cshtml", new ContactForm());
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<div>
+    @CurrentPage.GetGridHtml("grid")
+</div>
+
+@section scripts {
+    <script src="~/assets/vendor/jquery/jquery.validate.min.js"></script>
+    <script src="~/assets/vendor/jquery/jquery.validate.unobtrusive.min.js"></script>
 }

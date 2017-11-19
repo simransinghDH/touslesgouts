@@ -1,0 +1,32 @@
+﻿@inherits UmbracoTemplatePage
+
+@{ 
+    string siteName = CurrentPage.Site().siteName;
+    var selection = CurrentPage.Site().Children.Where("Visible");
+    var logoId = Umbraco.Media(CurrentPage.Site().logo);
+    string logoUrl = logoId.Url;
+}
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Navigatie </span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="@CurrentPage.Site().Url">
+                <img src="@logoUrl" alt="@siteName logo" width="75" />
+                <span class="navbar-sitename">@siteName</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                @foreach (var item in selection)
+                {
+                    <li class="@(item.IsAncestorOrSelf(CurrentPage) ? "active" : null)">
+                        <a class="page-scroll" href="@item.Url">@item.Name</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -16,7 +16,10 @@
 # ImageProcessor DiskCache 
 **/App_Data/cache/
 
+.vs/
+
 Website/
+target/
 
 ###################
 # compiled source #

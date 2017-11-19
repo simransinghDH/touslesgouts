@@ -1,0 +1,46 @@
+﻿@inherits UmbracoTemplatePage
+
+@{
+    var selection = CurrentPage.Children("productCategoryOverviewPage");
+    var page = selection.FirstOrDefault();
+    var extraImage = Umbraco.Media(CurrentPage.productCategoryExtraImage);
+}
+
+@if (page != null && page.Children.Any())
+{
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                @foreach (var productCategory in page.Children())
+                {
+                    var image = Umbraco.Media(productCategory.image);
+
+                    <div class="col-lg-4 col-sm-6">
+                        <a href="@productCategory.Url" class="portfolio-box">
+                            <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        @Umbraco.Field("#Home.ProductCategories.Subtitel")
+                                    </div>
+                                    <div class="project-name">
+                                        @productCategory.Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+                @if (extraImage != null && !string.IsNullOrEmpty(extraImage.Url))
+                {
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-box">
+                            <img src="@extraImage.Url" class="img-responsive" alt="@extraImage.UrlName">
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}

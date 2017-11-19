@@ -1,0 +1,374 @@
+﻿body {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+blockquote {
+    quotes: "\201C""\201D""\2018""\2019";
+    max-width: 680px;
+    margin: 10px auto;
+    font-style: italic;
+    font-size: 1.7em;
+    border-left-color: #ccc;
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+:focus {
+    outline: none;
+    outline-style: none;
+    outline-width: 0;
+    color: #9B0847;
+}
+
+.homepage section {
+    padding: 100px 0;
+}
+
+section {
+    padding: 60px 0;
+}
+
+.umb-grid .row {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.umb-grid .row p {
+    font-size: 21px;
+}
+
+.Zwart {
+    background-color: #222;
+    color: #FFF;
+}
+
+.Wit {
+    background-color: white;
+}
+
+.Rood {
+    background-color: #9B0847;
+    color: #FFF;
+}
+
+.extra-space {
+    margin-bottom: 20px;
+}
+
+.bg-primary {
+    background-color: #9B0847;
+}
+
+.text-primary {
+    color: #9B0847;
+}
+
+hr {
+    border-color: #570834;
+}
+
+a:focus, a:hover {
+    color: #9B0847;
+}
+
+.btn-primary {
+    background-color: #9B0847;
+}
+
+.btn-primary:hover {
+    background-color: #570834;
+}
+
+.navbar-default .navbar-header .navbar-brand {
+    font-family: 'Sansita', cursive;
+    color: #570834;
+}
+
+.navbar-default .navbar-header .navbar-brand>img {
+    display: inline;
+    margin-top: -4px;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: white;
+}
+
+.navbar-default .nav>li.active>a, .navbar-default .nav>li.active>a:focus {
+    color: #9B0847!important;
+    background-color: transparent;
+}
+
+.navbar-default {
+    min-height: 85px;
+}
+
+.navbar-collapse {
+    border-top: 0;
+}
+
+.navbar-brand {
+    padding-top: 10px
+}
+
+.navbar-sitename {
+    font-family: 'Sansita', cursive;
+    margin-left: 25px;
+}
+
+.navbar-toggle {
+    margin-top: 22px;
+}
+
+header .header-content .header-content-inner h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    text-transform: none;
+}
+
+header .header-content .header-content-inner p {
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    text-transform: none;
+}
+
+#about {
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+#about p.text-faded {
+    font-size: 130%;
+}
+
+.bg-primary h2.section-heading {
+    color: white;
+}
+
+h2.section-heading {
+    color: #570834;
+}
+
+.service-box p {
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+section#contact a {
+    color: inherit;
+    text-decoration: inherit;
+    font-size: 2em
+}
+
+section#contact a:hover {
+    color: #9B0847;
+}
+
+section#contact p {
+    font-size: 1em;
+}
+
+section#copyright {
+    background-color: #222;
+    color: white;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 0.8em;
+}
+
+.google-maps {
+    position: relative;
+    padding-bottom: 75%; // This is the aspect ratio
+    height: 0;
+    overflow: hidden;
+}
+
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+#location {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.portfolio-box .portfolio-box-caption {
+    background-color: rgba(155, 8, 71, 0.9);
+}
+
+#contact i {
+    color: #9B0847;
+}
+
+#contact-cta {
+    padding-bottom: 0;
+}
+
+#contact-cta p {
+    font-size: 1.3em;
+}
+
+#contact-cta table {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.form-group {
+    margin-bottom: 35px;
+}
+
+.form-group label {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
+    margin-bottom: 10px;
+    font-size: 1.7em;
+    color: #570834;
+}
+
+.field-validation-error {
+    color: #9B0847;
+}
+
+.bg-success {
+    padding: 20px;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.product-category-inner {
+    min-height: 250px;
+    text-align: center;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.product-category-inner:hover {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+}
+
+#product-categories-overview .row {
+    padding-bottom: 25px;
+}
+
+.product-category-inner a {
+    color: rgb(87, 8, 52);
+}
+
+.product-category-inner a:hover, .product-category-inner a:focus {
+    text-decoration: none;
+}
+
+.product-category-inner p {
+    font-size: 1.1em;
+    margin-top: 40px;
+}
+
+#product-category .row img {
+    max-width: 400px;
+}
+
+#product-category .row {
+    margin-bottom: 35px;
+}
+
+@media (max-width: 768px) {
+    header .header-content {
+        padding-bottom: 40px;
+    }
+
+    section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .umb-grid .grid-section .container .row img {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .umb-grid .row {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .google-maps {
+        padding-bottom: 25%;
+    }
+
+    header .header-content .header-content-inner p {
+        font-size: 21px;
+    }
+
+    .productcategoryoverviewpage header, .contactpage header, .textpage header, .productcategorypage header {
+        min-height: 450px;
+    }
+
+    .navbar-default .navbar-header .navbar-brand {
+        color: #FFF;
+        font-size: 160%;
+    }
+
+    .navbar-default.affix .navbar-header .navbar-brand {
+        color: #570834;
+        font-size: 160%;
+    }
+
+    .navbar-default.affix {
+        background-color: #FFF;
+    }
+
+    .navbar-default .nav>li>a {
+        font-family: 'Sansita', sans-serif;
+        color: #FFFFFF;
+        font-size: 140%;
+        padding-top: 34px;
+    }
+
+    .navbar-default .nav>li>a, 
+    .navbar-default .nav>li>a:focus {
+        font-size: 140%;
+    }
+
+    .affix .navbar-collapse .nav>li>a:hover,
+    .affix .navbar-sitename:hover,
+    .navbar-default.affix .navbar-header .navbar-brand:hover {
+        color: #9B0847;
+    }
+
+    .navbar-right {
+        margin-right: -30px;
+    }
+
+    .nav>li>a {
+        padding: 10px 30px;
+    }
+
+    .contact-title {
+        margin-bottom: 35px;
+    }
+
+    .umb-grid .grid-section .column img {
+        max-width: 100%;
+    }
+}

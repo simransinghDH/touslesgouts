@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "b9802d34e375a662")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f21246ad07a19224")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -172,6 +172,24 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Over ons tekst
+		///</summary>
+		[ImplementPropertyType("aboutUsText")]
+		public IHtmlString AboutUsText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("aboutUsText"); }
+		}
+
+		///<summary>
+		/// Over ons titel
+		///</summary>
+		[ImplementPropertyType("aboutUsTitle")]
+		public string AboutUsTitle
+		{
+			get { return this.GetPropertyValue<string>("aboutUsTitle"); }
+		}
+
+		///<summary>
 		/// Grid: De grid bevat de pagina inhoud in een vorm van een tabel. Hierbij wordt eerst een rij aangemaakt met daarin een aantal kolommen.
 		///</summary>
 		[ImplementPropertyType("grid")]
@@ -184,18 +202,63 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Leadbanner afbeelding: De hoogte van de afbeelding moet 720 pixels zijn om een goede visualisatie te verzekeren
 		///</summary>
 		[ImplementPropertyType("leadbannerImage")]
-		public Umbraco.Web.Models.ImageCropDataSet LeadbannerImage
+		public string LeadbannerImage
 		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("leadbannerImage"); }
+			get { return this.GetPropertyValue<string>("leadbannerImage"); }
 		}
 
 		///<summary>
-		/// Leadbanner link
+		/// Lead banner tekst
 		///</summary>
-		[ImplementPropertyType("leadbannerLink")]
-		public object LeadbannerLink
+		[ImplementPropertyType("leadBannerText")]
+		public IHtmlString LeadBannerText
 		{
-			get { return this.GetPropertyValue("leadbannerLink"); }
+			get { return this.GetPropertyValue<IHtmlString>("leadBannerText"); }
+		}
+
+		///<summary>
+		/// Lead banner titel
+		///</summary>
+		[ImplementPropertyType("leadBannerTitle")]
+		public string LeadBannerTitle
+		{
+			get { return this.GetPropertyValue<string>("leadBannerTitle"); }
+		}
+
+		///<summary>
+		/// Logo
+		///</summary>
+		[ImplementPropertyType("logo")]
+		public string Logo
+		{
+			get { return this.GetPropertyValue<string>("logo"); }
+		}
+
+		///<summary>
+		/// Product categorie extra foto
+		///</summary>
+		[ImplementPropertyType("productCategoryExtraImage")]
+		public string ProductCategoryExtraImage
+		{
+			get { return this.GetPropertyValue<string>("productCategoryExtraImage"); }
+		}
+
+		///<summary>
+		/// Kwaliteiten titel
+		///</summary>
+		[ImplementPropertyType("qualitiesTitle")]
+		public string QualitiesTitle
+		{
+			get { return this.GetPropertyValue<string>("qualitiesTitle"); }
+		}
+
+		///<summary>
+		/// Site naam
+		///</summary>
+		[ImplementPropertyType("siteName")]
+		public string SiteName
+		{
+			get { return this.GetPropertyValue<string>("siteName"); }
 		}
 
 		///<summary>
@@ -279,12 +342,39 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Grid
+		///</summary>
+		[ImplementPropertyType("grid")]
+		public Newtonsoft.Json.Linq.JToken Grid
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("grid"); }
+		}
+
+		///<summary>
+		/// Leadbanner afbeelding
+		///</summary>
+		[ImplementPropertyType("leadbannerImage")]
+		public string LeadbannerImage
+		{
+			get { return this.GetPropertyValue<string>("leadbannerImage"); }
+		}
+
+		///<summary>
 		/// E-mailadres
 		///</summary>
 		[ImplementPropertyType("mailAddress")]
 		public string MailAddress
 		{
 			get { return this.GetPropertyValue<string>("mailAddress"); }
+		}
+
+		///<summary>
+		/// Openingsuren metadata
+		///</summary>
+		[ImplementPropertyType("openingsHoursMetadata")]
+		public string OpeningsHoursMetadata
+		{
+			get { return this.GetPropertyValue<string>("openingsHoursMetadata"); }
 		}
 
 		///<summary>
@@ -377,21 +467,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Inhoud in de spotlight
-		///</summary>
-		[ImplementPropertyType("bodyText")]
-		public IHtmlString BodyText
-		{
-			get { return this.GetPropertyValue<IHtmlString>("bodyText"); }
-		}
-
-		///<summary>
 		/// Grid
 		///</summary>
 		[ImplementPropertyType("grid")]
 		public Newtonsoft.Json.Linq.JToken Grid
 		{
 			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("grid"); }
+		}
+
+		///<summary>
+		/// Leadbanner afbeelding
+		///</summary>
+		[ImplementPropertyType("leadbannerImage")]
+		public string LeadbannerImage
+		{
+			get { return this.GetPropertyValue<string>("leadbannerImage"); }
 		}
 
 		///<summary>
@@ -428,6 +518,342 @@ namespace Umbraco.Web.PublishedContentModels
 		public string PageTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.Title.GetPageTitle(this); }
+		}
+	}
+
+	/// <summary>Kwaliteit</summary>
+	[PublishedContentModel("kwaliteit")]
+	public partial class Kwaliteit : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "kwaliteit";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Kwaliteit(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Kwaliteit, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Icoon: Maak uw keuze voor een icoon op http://fontawesome.io/icons/ . Kies een icoon, klik er op en kopieer de weergegeven naam in het veld hiernaast
+		///</summary>
+		[ImplementPropertyType("icon")]
+		public string Icon
+		{
+			get { return this.GetPropertyValue<string>("icon"); }
+		}
+
+		///<summary>
+		/// Tekst
+		///</summary>
+		[ImplementPropertyType("text")]
+		public string Text
+		{
+			get { return this.GetPropertyValue<string>("text"); }
+		}
+
+		///<summary>
+		/// Titel
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
+		}
+	}
+
+	/// <summary>Kwaliteit Folder</summary>
+	[PublishedContentModel("kwaliteitFolder")]
+	public partial class KwaliteitFolder : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "kwaliteitFolder";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public KwaliteitFolder(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<KwaliteitFolder, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Data</summary>
+	[PublishedContentModel("data")]
+	public partial class Data : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "data";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Data(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Data, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+	}
+
+	/// <summary>Product Category Page</summary>
+	[PublishedContentModel("productCategoryPage")]
+	public partial class ProductCategoryPage : PublishedContentModel, ISEO, ITitle
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "productCategoryPage";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ProductCategoryPage(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ProductCategoryPage, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Tekst
+		///</summary>
+		[ImplementPropertyType("bodyText")]
+		public IHtmlString BodyText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("bodyText"); }
+		}
+
+		///<summary>
+		/// Grid
+		///</summary>
+		[ImplementPropertyType("grid")]
+		public Newtonsoft.Json.Linq.JToken Grid
+		{
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("grid"); }
+		}
+
+		///<summary>
+		/// Afbeelding: Deze afbeelding wordt gebruikt voor het overzicht op de home en product overview pagina's
+		///</summary>
+		[ImplementPropertyType("image")]
+		public string Image
+		{
+			get { return this.GetPropertyValue<string>("image"); }
+		}
+
+		///<summary>
+		/// Leadbanner afbeelding
+		///</summary>
+		[ImplementPropertyType("leadbannerImage")]
+		public string LeadbannerImage
+		{
+			get { return this.GetPropertyValue<string>("leadbannerImage"); }
+		}
+
+		///<summary>
+		/// Samenvatting: Een korte samenvatting over de product categorie. De samenvatting wordt weergegeven op de overzichtspagina
+		///</summary>
+		[ImplementPropertyType("summary")]
+		public string Summary
+		{
+			get { return this.GetPropertyValue<string>("summary"); }
+		}
+
+		///<summary>
+		/// Meta omschrijving
+		///</summary>
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaDescription(this); }
+		}
+
+		///<summary>
+		/// Kernwoorden
+		///</summary>
+		[ImplementPropertyType("metaKeywords")]
+		public string MetaKeywords
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaKeywords(this); }
+		}
+
+		///<summary>
+		/// Meta titel
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetTitle(this); }
+		}
+
+		///<summary>
+		/// Pagina titel
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Title.GetPageTitle(this); }
+		}
+	}
+
+	/// <summary>Product Category Overview Page</summary>
+	[PublishedContentModel("productCategoryOverviewPage")]
+	public partial class ProductCategoryOverviewPage : PublishedContentModel, ISEO, ITitle
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "productCategoryOverviewPage";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public ProductCategoryOverviewPage(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ProductCategoryOverviewPage, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Leadbanner afbeelding
+		///</summary>
+		[ImplementPropertyType("leadbannerImage")]
+		public string LeadbannerImage
+		{
+			get { return this.GetPropertyValue<string>("leadbannerImage"); }
+		}
+
+		///<summary>
+		/// Meta omschrijving
+		///</summary>
+		[ImplementPropertyType("metaDescription")]
+		public string MetaDescription
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaDescription(this); }
+		}
+
+		///<summary>
+		/// Kernwoorden
+		///</summary>
+		[ImplementPropertyType("metaKeywords")]
+		public string MetaKeywords
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetMetaKeywords(this); }
+		}
+
+		///<summary>
+		/// Meta titel
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return Umbraco.Web.PublishedContentModels.SEO.GetTitle(this); }
+		}
+
+		///<summary>
+		/// Pagina titel
+		///</summary>
+		[ImplementPropertyType("pageTitle")]
+		public string PageTitle
+		{
+			get { return Umbraco.Web.PublishedContentModels.Title.GetPageTitle(this); }
+		}
+	}
+
+	/// <summary>Product</summary>
+	[PublishedContentModel("product")]
+	public partial class Product : PublishedContentModel
+	{
+#pragma warning disable 0109 // new is redundant
+		public new const string ModelTypeAlias = "product";
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+#pragma warning restore 0109
+
+		public Product(IPublishedContent content)
+			: base(content)
+		{ }
+
+#pragma warning disable 0109 // new is redundant
+		public new static PublishedContentType GetModelContentType()
+		{
+			return PublishedContentType.Get(ModelItemType, ModelTypeAlias);
+		}
+#pragma warning restore 0109
+
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Product, TValue>> selector)
+		{
+			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Afbeelding
+		///</summary>
+		[ImplementPropertyType("image")]
+		public string Image
+		{
+			get { return this.GetPropertyValue<string>("image"); }
+		}
+
+		///<summary>
+		/// Tekst
+		///</summary>
+		[ImplementPropertyType("text")]
+		public IHtmlString Text
+		{
+			get { return this.GetPropertyValue<IHtmlString>("text"); }
+		}
+
+		///<summary>
+		/// Titel
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return this.GetPropertyValue<string>("title"); }
 		}
 	}
 

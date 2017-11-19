@@ -1,5 +1,20 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TextPage>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+﻿@inherits UmbracoTemplatePage
 @{
-	Layout = "Master.cshtml";
+    Layout = "Master.cshtml";
+    var leadBannerId = Umbraco.Media(CurrentPage.leadbannerImage);
+    string leadBannerUrl = leadBannerId.Url;
 }
+
+@section stylesheets {
+    <style>
+        body header {
+            background-image: url('@Html.Raw(leadBannerUrl)');
+        }
+    </style>
+}
+
+@Html.Partial("~/Views/Partials/Shared/_Leadbanner.cshtml")
+
+<div>
+    @CurrentPage.GetGridHtml("grid")
+</div>

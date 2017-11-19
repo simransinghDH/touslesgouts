@@ -1,0 +1,67 @@
+﻿@inherits UmbracoTemplatePage
+
+@{
+    var contactPage = Umbraco.Content(1078);
+    string siteName = CurrentPage.Site().siteName;
+    bool isContactPage = contactPage != null && contactPage.Id == CurrentPage.Id;
+}
+
+@if (contactPage != null)
+{
+    if (!isContactPage)
+    {
+        <aside class="bg-dark">
+            <div class="container text-center">
+                <div class="call-to-action">
+                    <h2>@Umbraco.Field("#Footer.Titel")</h2>
+                    <a href="@contactPage.Url" class="btn btn-default btn-primary btn-xl sr-button">@Umbraco.Field("#Footer.Knop")</a>
+                </div>
+            </div>
+        </aside>
+    }
+
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 extra-space text-center">
+                    <h2 class="section-heading">@Umbraco.Field("#Footer.ContactTitel")</h2>
+                    <hr class="primary">
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="tel:@contactPage.telephone">
+                        <i class="fa fa-phone fa-3x sr-contact"></i>
+                        <p>@contactPage.telephone</p>
+                    </a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="@contactPage.facebookPage" target="_blank">
+                        <i class="fa fa-facebook-official fa-3x sr-contact"></i>
+                        <p>Facebook</p>
+                    </a>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <a href="mailto:@contactPage.mailAddress">
+                        <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                        <p>@contactPage.mailAddress</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="google-maps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2491.9400509755765!2d3.2866543161119095!3d51.34901297960938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c4a62e6585ca0d%3A0x71582f243b17047a!2sFrederiksborg!5e0!3m2!1snl!2sbe!4v1497970607707" width="1100" height="350" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section id="copyright">
+    <div class="container">
+        <div class="text-center">&copy; @DateTime.Now.Year @siteName - @Umbraco.Field("#Footer.CopyrightTekst")</div>
+    </div>
+</section>

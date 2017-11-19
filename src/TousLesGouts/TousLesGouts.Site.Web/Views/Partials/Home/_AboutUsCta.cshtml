@@ -1,0 +1,17 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var aboutUsPage = Umbraco.Content(1076);
+}
+
+<section class="bg-primary" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <h2 class="section-heading">@Umbraco.Field("aboutUsTitle")</h2>
+                <hr class="light">
+                <p class="text-faded">@Umbraco.Field("aboutUsText")</p>
+                <a href="@aboutUsPage.Url" class="page-scroll btn btn-default btn-xl sr-button">@Umbraco.Field("#Home.OverOns.Knop")</a>
+            </div>
+        </div>
+    </div>
+</section>

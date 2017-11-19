@@ -307,6 +307,7 @@
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="assets\css\site.css" />
     <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
@@ -339,12 +340,38 @@
     <Content Include="config\Lang\sv-SE.user.xml" />
     <Content Include="config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="img\portfolio\fullsize\1.jpg" />
+    <Content Include="img\portfolio\fullsize\2.jpg" />
+    <Content Include="img\portfolio\fullsize\3.jpg" />
+    <Content Include="img\portfolio\fullsize\4.jpg" />
+    <Content Include="img\portfolio\fullsize\5.jpg" />
+    <Content Include="img\portfolio\fullsize\6.jpg" />
+    <Content Include="img\portfolio\thumbnails\1.jpg" />
+    <Content Include="img\portfolio\thumbnails\2.jpg" />
+    <Content Include="img\portfolio\thumbnails\3.jpg" />
+    <Content Include="img\portfolio\thumbnails\4.jpg" />
+    <Content Include="img\portfolio\thumbnails\5.jpg" />
+    <Content Include="img\portfolio\thumbnails\6.jpg" />
+    <Content Include="Media\1001\header-darker2.jpg" />
+    <Content Include="Media\1001\header-darker_big-thumb.jpg" />
+    <Content Include="Media\1001\header-darker_thumb.jpg" />
+    <Content Include="Media\1002\total-logo-earth.png" />
+    <Content Include="Media\1002\total-logo-earth_big-thumb.jpg" />
+    <Content Include="Media\1002\total-logo-earth_big-thumb.png" />
+    <Content Include="Media\1002\total-logo-earth_thumb.jpg" />
+    <Content Include="Media\1002\total-logo-earth_thumb.png" />
+    <Content Include="Media\1003\header-darker2.jpg" />
+    <Content Include="Media\1003\header-darker2_big-thumb.jpg" />
+    <Content Include="Media\1003\header-darker2_thumb.jpg" />
     <Content Include="packages.config" />
     <Content Include="config\imageprocessor\security.config" />
     <Content Include="config\imageprocessor\processing.config" />
     <Content Include="config\imageprocessor\cache.config" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="assets\vendor\jquery\jquery.validate.min.js" />
+    <Content Include="assets\vendor\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -415,6 +442,16 @@
     <Content Include="assets\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="assets\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Partials\Home\_Leadbanner.cshtml" />
+    <Content Include="Views\Partials\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Partials\Home\_Products.cshtml" />
+    <Content Include="Views\Partials\Shared\_Footer.cshtml" />
+    <Content Include="Views\Partials\Home\_AboutUsCta.cshtml" />
+    <Content Include="Views\Partials\Home\_Qualities.cshtml" />
+    <Content Include="Views\ProductCategoryOverviewPage.cshtml" />
+    <Content Include="Views\ProductCategoryPage.cshtml" />
+    <Content Include="Views\Partials\Forms\ContactForm.cshtml" />
+    <Content Include="Views\Partials\Shared\_Leadbanner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -426,6 +463,16 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FormController.cs" />
+    <Compile Include="Models\Contact\ContactForm.cs" />
+    <Compile Include="Models\Mails\IMailProcessor.cs" />
+    <Compile Include="Models\Mails\MailProcessor.cs" />
+    <Compile Include="Mvc\UmbracoDisplayAttribute.cs" />
+    <Compile Include="Mvc\UmbracoEmailValidationAttribute.cs" />
+    <Compile Include="Mvc\UmbracoRegexValidationAttribute.cs" />
+    <Compile Include="Mvc\UmbracoRequiredAttribute.cs" />
+    <Compile Include="Mvc\UmbracoValidationAttribute.cs" />
+    <Compile Include="Mvc\UmbracoValidationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -433,9 +480,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\css\" />
-    <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
+    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

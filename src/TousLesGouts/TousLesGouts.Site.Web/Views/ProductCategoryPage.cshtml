@@ -1,0 +1,47 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var leadBannerId = Umbraco.Media(CurrentPage.leadbannerImage);
+    string leadBannerUrl = leadBannerId.Url;
+    var products = CurrentPage.Children().Where("Visible");
+}
+
+@section stylesheets {
+    <style>
+        body header {
+            background-image: url('@Html.Raw(leadBannerUrl)');
+        }
+    </style>
+}
+
+@Html.Partial("~/Views/Partials/Shared/_Leadbanner.cshtml")
+
+<aside class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <p>@Umbraco.Field("bodyText")</p>
+        </div>
+    </div>
+</aside>
+
+<section id="product-category">
+    <div class="container">
+        @foreach (var product in products)
+        {
+            var image = Umbraco.Media(product.image);
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="@image.Url" class="img-responsive" alt="@image.UrlName">
+                </div>
+                <div class="col-md-7">
+                    <h3>
+                        @product.title
+                    </h3>
+                    <p>
+                        @product.text
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</section>
