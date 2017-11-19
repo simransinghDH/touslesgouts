@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "f21246ad07a19224")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "478bdaf97f33efb9")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -248,15 +248,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Logo
 		{
 			get { return this.GetPropertyValue<string>("logo"); }
-		}
-
-		///<summary>
-		/// Product categorie extra foto
-		///</summary>
-		[ImplementPropertyType("productCategoryExtraImage")]
-		public string ProductCategoryExtraImage
-		{
-			get { return this.GetPropertyValue<string>("productCategoryExtraImage"); }
 		}
 
 		///<summary>
@@ -686,7 +677,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Afbeelding: Deze afbeelding wordt gebruikt voor het overzicht op de home en product overview pagina's
+		/// Afbeelding: Deze afbeelding wordt gebruikt voor het overzicht op de home en product overview pagina's. Gebruik een grootte van 650 x 350 pixels
 		///</summary>
 		[ImplementPropertyType("image")]
 		public string Image
@@ -695,7 +686,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Leadbanner afbeelding
+		/// Foto layout: De producten worden op een alternatieve manier getoond. Per rij wordt per product een foto getoond met daaronder een kleine tekst. Max. 4 producten per rij
+		///</summary>
+		[ImplementPropertyType("isPictureLayout")]
+		public bool IsPictureLayout
+		{
+			get { return this.GetPropertyValue<bool>("isPictureLayout"); }
+		}
+
+		///<summary>
+		/// Leadbanner afbeelding: Deze afbeelding wordt bovenaan de product categorie pagina getoond. Gebruik een grootte van minsten 1900 pixels breed. De hoogte wordt van zelf aangepast
 		///</summary>
 		[ImplementPropertyType("leadbannerImage")]
 		public string LeadbannerImage
@@ -855,7 +855,16 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Tekst
+		/// Korte tekst: Deze tekst wordt enkel getoond wanneer op de bovenliggende categoriepagina gekozen wordt voor de foto layout
+		///</summary>
+		[ImplementPropertyType("summary")]
+		public string Summary
+		{
+			get { return this.GetPropertyValue<string>("summary"); }
+		}
+
+		///<summary>
+		/// Tekst: Deze tekst wordt enkel getoond wanneer op de bovenliggende categoriepagina NIET gekozen wordt voor de foto layout
 		///</summary>
 		[ImplementPropertyType("text")]
 		public IHtmlString Text
